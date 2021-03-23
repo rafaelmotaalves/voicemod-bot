@@ -1,0 +1,9 @@
+version: "3.9" 
+services:
+  bot:
+    build: .
+    ports:
+      - "4458:4458"
+    volumes:
+      - .:/app
+    env_file: .env
