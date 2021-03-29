@@ -5,10 +5,10 @@ from util.convert_audio import ogg_to_wav
 from voicemod.mods import apply_mod
 from dal.audio_repository import TelegramAudioRepository
 
-class ModifyAudioHandler():
-    MESSAGE_PREFIX = "Audio from @"
-    FILE_OPEN_MODE = "RB"
+MESSAGE_PREFIX = "Audio from @"
+FILE_OPEN_MODE = "RB"
 
+class ModifyAudioHandler():
     def __init__(self, audio_repository: TelegramAudioRepository):
         self.audio_repository = audio_repository
 
