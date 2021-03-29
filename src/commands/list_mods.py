@@ -1,7 +1,7 @@
 from telegram.ext import CallbackContext 
 from telegram import Update
 
-VOICE_MODS = ["teste", "oi", "abc"]
+VOICE_MODS = ["volume_up", "volume_down"]
 
 class ListModsCommand():
     command  = "list_mods"

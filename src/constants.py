@@ -1,0 +1,3 @@
+OGG_EXTENSION = ".oga"
+WAV_EXTENSION = ".wav"
+WAV_FORMAT = "wav"
