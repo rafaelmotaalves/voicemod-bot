@@ -1,6 +1,7 @@
 from pydub import AudioSegment
 import numpy as np
 
+
 def read(filename: str) -> (int, np.array):
     audio = AudioSegment.from_file(filename)
 
@@ -10,11 +11,13 @@ def read(filename: str) -> (int, np.array):
 
     return audio.frame_rate, np.array(samples)
 
-def write(filename: str, data: np.array, frame_rate: int=2240):
+
+def write(filename: str, data: np.array, frame_rate: int = 2240):
     audio = AudioSegment(
-        data=np.array(data, dtype=np.int16).tobytes(), # force 16 bit signed integer
-        channels=1, # mono
-        sample_width=2, # 2 bytes
+        # force 16 bit signed integer
+        data=np.array(data, dtype=np.int16).tobytes(),
+        channels=1,  # mono
+        sample_width=2,  # 2 bytes
         frame_rate=frame_rate
     )
 
