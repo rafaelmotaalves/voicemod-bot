@@ -17,7 +17,7 @@ class ModifyAudioHandler():
             audio_path = self.download_audio(update, context)
             mod_name = context.user_data.get(MOD_NAME)
             apply_mod(audio_path, mod_name)
-            update.message.reply_audio(open(audio_path, FILE_OPEN_MODE), title=MESSAGE_PREFIX + username)
+            update.message.reply_audio(open(audio_path, FILE_OPEN_MODE), title=MESSAGE_PREFIX + update.message.from_user.username)
             update.message.delete()
     
     def is_modifiable_audio(self, context: CallbackContext):
