@@ -14,10 +14,9 @@ def read(filename: str) -> (int, np.array):
 
 def write(filename: str, data: np.array, frame_rate: int = 44100):
     audio = AudioSegment(
-        # force 16 bit signed integer
         data=np.array(data, dtype=np.int32).tobytes(),
         channels=1,  # mono
-        sample_width=4,  # 2 bytes
+        sample_width=4,  # bytes
         frame_rate=frame_rate
     )
 

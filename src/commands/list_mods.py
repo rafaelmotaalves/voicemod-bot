@@ -1,10 +1,10 @@
 from telegram.ext import CallbackContext 
 from telegram import Update
+from voicemod.mods import list_mods
 
-VOICE_MODS = ["volume_up", "volume_down"]
 
 class ListModsCommand():
     command  = "list_mods"
 
     def callback(self, update: Update, context: CallbackContext):
-        update.message.reply_text(f"The voicemod options are: {', '.join(VOICE_MODS)}")
+        update.message.reply_text(f"The voicemod options are: {', '.join(list_mods())}")
