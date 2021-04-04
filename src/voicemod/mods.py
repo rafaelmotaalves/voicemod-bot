@@ -2,9 +2,9 @@ from voicemod.filters import VolumeFilter, PitchShiftFilter
 from voicemod.io import read, write
 
 mods = {
-    "volume_down": VolumeFilter(volume=0.2),
-    "volume_up": VolumeFilter(volume=5),
-    "pitch_shifter": PitchShiftFilter(steps=8)
+    "luan_gameplays": VolumeFilter(volume=5),
+    "alvin": PitchShiftFilter(steps=8),
+    "darth_vader": PitchShiftFilter(steps=-5)
 }
 
 def apply_mod(audio_path, mod_name):
