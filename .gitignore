@@ -142,3 +142,4 @@ cython_debug/
 
 # test results
 result*.wav
+tmp

@@ -9,4 +9,4 @@ class PitchShiftFilter(BaseFilter):
     def execute(self, frame_rate: int, data: np.array) -> np.array:
         steps = self.params.get('steps', self.DEFAULT_STEPS)
 
-        return pitch_shift(data.astype(np.float), frame_rate, steps).astype(np.int16)
+        return pitch_shift(data.astype(np.float), frame_rate, steps).astype(np.int32)
