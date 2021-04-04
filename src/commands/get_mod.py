@@ -1,5 +1,6 @@
 from telegram.ext import CallbackContext 
 from telegram import Update
+from util.telegram import get_user_mod_name
 
 class GetModCommand():
     command  = "get_mod"
