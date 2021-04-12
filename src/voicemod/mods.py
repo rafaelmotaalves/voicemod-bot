@@ -1,11 +1,13 @@
-from voicemod.filters import VolumeFilter, PitchShiftFilter, ReverbFilter
+from voicemod.filters import VolumeFilter, PitchShiftFilter, ReverbFilter, WhaleFilter, ReverseFilter
 from voicemod.io import read, write
 
 mods = {
     "luan_gameplays": VolumeFilter(volume=5),
     "alvin": PitchShiftFilter(steps=8),
     "darth_vader": PitchShiftFilter(steps=-5),
-    "eco": ReverbFilter(delay=200, decay=0.6)
+    "eco": ReverbFilter(delay=200, decay=0.6),
+    "baleies": PitchShiftFilter(WhaleFilter(rate=0.3), steps=-1),
+    "reverse": ReverseFilter()
 }
 
 def list_mods():
