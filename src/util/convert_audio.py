@@ -1,7 +1,8 @@
 import logging
 
 from pydub import AudioSegment
-from constants import OGA_EXTENSION, WAV_EXTENSION, WAV_FORMAT, OGG_FORMAT
+from constants import OGA_EXTENSION, WAV_EXTENSION, WAV_FORMAT, OGG_EXTENSION
+import subprocess
 
 ARTIST = "@VoiceModBot"
 
@@ -20,9 +21,8 @@ def wav_to_ogg (file_path: str):
     logging.info("Converting " + file_path + " to ogg")
 
     audio = AudioSegment.from_ogg(file_path)
-
-    new_path = file_path.replace(WAV_EXTENSION, OGA_EXTENSION)
-    audio.export(new_path, format=OGG_FORMAT, tags={"artist": ARTIST})
+    new_path = file_path.replace(WAV_EXTENSION, OGG_EXTENSION)
+    subprocess.run(["ffmpeg", '-i', file_path, '-acodec', 'libopus', new_path, '-y'])
     
     logging.info (file_path + " converted to " + new_path)
     return new_path
