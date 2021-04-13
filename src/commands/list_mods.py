@@ -1,5 +1,5 @@
 from telegram.ext import CallbackContext 
-from telegram import Update, Bot
+from telegram import Update
 from voicemod.mods import list_mods
 
 
