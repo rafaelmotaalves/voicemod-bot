@@ -1,6 +1,7 @@
 import logging
 from pydub import AudioSegment
 import numpy as np
+from voicemod.util import create_segment
 
 def read(filename: str) -> (int, np.array):
     audio = AudioSegment.from_file(filename)
@@ -13,11 +14,5 @@ def read(filename: str) -> (int, np.array):
 
 
 def write(filename: str, data: np.array, frame_rate: int = 44100):
-    audio = AudioSegment(
-        data=np.array(data, dtype=np.int32).tobytes(),
-        channels=1,  # mono
-        sample_width=4,  # bytes
-        frame_rate=frame_rate
-    )
-
+    audio = create_segment(data, frame_rate)
     audio.export(filename, format=filename.split(".")[-1])

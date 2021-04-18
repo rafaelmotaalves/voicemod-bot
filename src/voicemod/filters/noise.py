@@ -1,7 +1,7 @@
 import numpy as np
 from voicemod.filters.base import BaseFilter
 
-class NoiseFilter(BaseFilter):
+class AddNoiseFilter(BaseFilter):
     DEFAULT_DENSITY = 1
 
     def execute(self, frame_rate: int, data: np.array) -> np.array:

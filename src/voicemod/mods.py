@@ -1,4 +1,4 @@
-from voicemod.filters import VolumeFilter, PitchShiftFilter, ReverbFilter, WhaleFilter, ReverseFilter, BandPassFilter, NoiseFilter
+from voicemod.filters import VolumeFilter, PitchShiftFilter, ReverbFilter, WhaleFilter, ReverseFilter, BandPassFilter, AddNoiseFilter, DynamicRangeCompress
 from voicemod.io import read, write
 
 mods = {
@@ -8,7 +8,9 @@ mods = {
     "eco": ReverbFilter(delay=200, decay=0.6),
     "baleies": PitchShiftFilter(WhaleFilter(rate=0.3), steps=-1),
     "reverse": ReverseFilter(),
-    "radio": VolumeFilter(NoiseFilter(BandPassFilter(order=6, low=300, high=3000), density=100), volume=1.5)
+    "radio": VolumeFilter(AddNoiseFilter(BandPassFilter(order=6, low=300, high=3000), density=100), volume=1.5),
+    # TODO: Add filter to also reduce noise on the audio
+    "quality": DynamicRangeCompress()
 }
 
 def list_mods():
