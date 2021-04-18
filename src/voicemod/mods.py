@@ -1,4 +1,4 @@
-from voicemod.filters import VolumeFilter, PitchShiftFilter, ReverbFilter, WhaleFilter, ReverseFilter
+from voicemod.filters import VolumeFilter, PitchShiftFilter, ReverbFilter, WhaleFilter, ReverseFilter, BandPassFilter, NoiseFilter
 from voicemod.io import read, write
 
 mods = {
@@ -7,7 +7,8 @@ mods = {
     "darth_vader": PitchShiftFilter(steps=-5),
     "eco": ReverbFilter(delay=200, decay=0.6),
     "baleies": PitchShiftFilter(WhaleFilter(rate=0.3), steps=-1),
-    "reverse": ReverseFilter()
+    "reverse": ReverseFilter(),
+    "radio": VolumeFilter(NoiseFilter(BandPassFilter(order=6, low=300, high=3000), density=100), volume=1.5)
 }
 
 def list_mods():
