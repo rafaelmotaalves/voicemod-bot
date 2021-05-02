@@ -7,4 +7,6 @@ class ListModsCommand():
     command  = "list_mods"
 
     def callback(self, update: Update, context: CallbackContext):
-        update.message.reply_text(f"The voicemod options are: {', '.join(list_mods())}")
+        mods = map(lambda x: " - " + x, list_mods())
+
+        update.message.reply_text("The voicemod options are:\n" + "\n".join(mods))
