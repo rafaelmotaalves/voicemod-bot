@@ -16,7 +16,7 @@ class DynamicRangeCompress(BaseFilter):
         ratio = self.params.get("ratio", self.DEFAULT_RATIO)
         # how long it takes to start compression once the value exceeded the threshold
         attack = self.params.get("attack", self.DEFAULT_ATTACK)
-        # how long it takes to stop compression once the value falled before the threshold
+        # how long it takes to stop compression once the value failled before the threshold
         release = self.params.get("release", self.DEFAULT_RELEASE)
 
         segment = create_segment(data, frame_rate)
